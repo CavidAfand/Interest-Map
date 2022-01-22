@@ -18,7 +18,6 @@ public class SessionController {
     public SessionController(SessionManager sessionManager) {
         this.sessionManager = sessionManager;
     }
-//    private final
 
     @PostMapping("/login")
     public ServiceResponse<LoginResponseDTO> login(@RequestBody @Valid LoginRequestDTO requestDTO) {
