@@ -29,8 +29,6 @@ public class SessionManagerImpl implements SessionManager {
 
     @Override
     public LoginResponseDTO login(String username, String password) {
-        System.out.println("Username: " + username);
-        System.out.println("Password: " + password);
         UserDTO userDTO = userService.getUserByUsername(username);
         if (!passwordEncoder.matches(password, userDTO.getPassword())) {
             throw new PasswordNotMatchedException();
@@ -40,6 +38,7 @@ public class SessionManagerImpl implements SessionManager {
         LoginResponseDTO loginResponseDTO = new LoginResponseDTO();
         loginResponseDTO.setToken(token);
         loginResponseDTO.setUserType(userDTO.getType().name());
+        loginResponseDTO.setName(userDTO.getName());
         return loginResponseDTO;
     }
 

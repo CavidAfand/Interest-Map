@@ -40,6 +40,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         UserRegistrationResponseDTO userRegistrationResponseDTO = new UserRegistrationResponseDTO();
         userRegistrationResponseDTO.setToken(token);
         userRegistrationResponseDTO.setUserType(userDTO.getType().name());
+        userRegistrationResponseDTO.setName(userDTO.getName());
         return userRegistrationResponseDTO;
     }
 

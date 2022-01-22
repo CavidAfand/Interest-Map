@@ -12,4 +12,6 @@ public class UserRegistrationResponseDTO {
     @JsonProperty("userType")
     private String userType;
 
+    @JsonProperty("name")
+    private String name;
 }

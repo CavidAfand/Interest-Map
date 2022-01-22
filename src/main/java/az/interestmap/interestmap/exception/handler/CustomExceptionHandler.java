@@ -29,13 +29,22 @@ public class CustomExceptionHandler {
         return serviceResponse;
     }
 
-    @ExceptionHandler({UserNotFoundException.class, PasswordNotMatchedException.class})
+    @ExceptionHandler({UserNotFoundException.class})
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ServiceResponse getErrorResponse(UserNotFoundException ex) {
         log.error("UserNotFound exception");
         ServiceResponse serviceResponse = ServiceResponse.getErrorResponse("404", messageProviderService.getMessage("error.user_not_found"));
         return serviceResponse;
     }
+
+    @ExceptionHandler(PasswordNotMatchedException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ServiceResponse getErrorResponse(PasswordNotMatchedException ex) {
+        log.error("UserNotFound exception");
+        ServiceResponse serviceResponse = ServiceResponse.getErrorResponse("404", messageProviderService.getMessage("error.user_not_found"));
+        return serviceResponse;
+    }
+
 
     @ExceptionHandler({Exception.class})
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
