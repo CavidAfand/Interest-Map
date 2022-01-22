@@ -40,10 +40,10 @@ public class SessionServiceImpl implements SessionService {
     }
 
     @Override
-    public void closeSession(String sessionId) {
-        Session session = sessionRepository.getSessionBySessionId(sessionId);
-        session.setStatus(SessionStatus.CLOSED);
-        sessionRepository.save(session);
+    public SessionDTO updateSession(SessionDTO sessionDTO) {
+        Session session = objectMapService.getSessionEntityFromDTO(sessionDTO);
+        session = sessionRepository.save(session);
+        return objectMapService.getSessionDTOFromEntity(session);
     }
 
 

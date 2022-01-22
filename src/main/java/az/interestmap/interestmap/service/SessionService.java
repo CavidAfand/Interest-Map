@@ -10,6 +10,5 @@ public interface SessionService {
 
     SessionDTO createSession(UserDTO userDTO);
 
-    void closeSession(String sessionId);
-
+    SessionDTO updateSession(SessionDTO sessionDTO);
 }

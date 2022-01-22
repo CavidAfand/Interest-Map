@@ -1,6 +1,9 @@
-package az.interestmap.interestmap.exception;
+package az.interestmap.interestmap.exception.handler;
 
 import az.interestmap.interestmap.dto.ServiceResponse;
+import az.interestmap.interestmap.exception.custom.ExistedUsernameException;
+import az.interestmap.interestmap.exception.custom.PasswordNotMatchedException;
+import az.interestmap.interestmap.exception.custom.UserNotFoundException;
 import az.interestmap.interestmap.service.MessageProviderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -23,6 +26,14 @@ public class CustomExceptionHandler {
     public ServiceResponse getErrorResponse(ExistedUsernameException ex) {
         log.error("ExistedUsername exception");
         ServiceResponse serviceResponse = ServiceResponse.getErrorResponse("400", messageProviderService.getMessage("error.existed_username"));
+        return serviceResponse;
+    }
+
+    @ExceptionHandler({UserNotFoundException.class, PasswordNotMatchedException.class})
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ServiceResponse getErrorResponse(UserNotFoundException ex) {
+        log.error("UserNotFound exception");
+        ServiceResponse serviceResponse = ServiceResponse.getErrorResponse("404", messageProviderService.getMessage("error.user_not_found"));
         return serviceResponse;
     }
 

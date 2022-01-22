@@ -17,6 +17,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String language = request.getHeader("Accept-Language");
+        System.out.println("Accept-Language: " + language);
         LocaleContextHolder.setLocale(Locale.forLanguageTag(language));
         filterChain.doFilter(request, response);
     }

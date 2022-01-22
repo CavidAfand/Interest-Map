@@ -4,7 +4,7 @@ import az.interestmap.interestmap.dto.controller.UserRegistrationRequestDTO;
 import az.interestmap.interestmap.dto.controller.request.UserRegistrationResponseDTO;
 import az.interestmap.interestmap.dto.repo.SessionDTO;
 import az.interestmap.interestmap.dto.repo.UserDTO;
-import az.interestmap.interestmap.exception.ExistedUsernameException;
+import az.interestmap.interestmap.exception.custom.ExistedUsernameException;
 import az.interestmap.interestmap.service.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

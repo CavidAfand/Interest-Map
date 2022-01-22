@@ -7,4 +7,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     long countByUsername(String username);
 
+    User getUserByUsername(String username);
+
 }
