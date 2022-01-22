@@ -15,9 +15,14 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final ObjectMapService objectMapService;
 
-    public UserServiceImpl(UserRepository userRepository, ObjectMapService objectMapService, PasswordEncoder passwordEncoder) {
+    public UserServiceImpl(UserRepository userRepository, ObjectMapService objectMapService) {
         this.userRepository = userRepository;
         this.objectMapService = objectMapService;
+    }
+
+    @Override
+    public UserDTO getUserByUsername(String username) {
+        return null;
     }
 
     @Override

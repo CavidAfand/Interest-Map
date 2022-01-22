@@ -6,6 +6,7 @@ import az.interestmap.interestmap.dto.controller.request.UserRegistrationRespons
 import az.interestmap.interestmap.service.RegistrationService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -20,8 +21,10 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public ServiceResponse<UserRegistrationResponseDTO> registerUser(@RequestBody @Valid UserRegistrationRequestDTO requestDTO) {
-        System.out.println(requestDTO);
+    public ServiceResponse<UserRegistrationResponseDTO> registerUser(
+            @RequestHeader("Accept-Language") String language,
+            @RequestBody @Valid UserRegistrationRequestDTO requestDTO
+    ) {
         UserRegistrationResponseDTO userRegistrationResponseDTO = registrationService.registerUser(requestDTO);
         return ServiceResponse.getSuccessfulResponse(userRegistrationResponseDTO);
     }
