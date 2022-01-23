@@ -42,8 +42,10 @@ public class PlaceServiceImpl implements PlaceService {
 
         ClientSearchResponseDTO clientSearchResponseDTO1 = new ClientSearchResponseDTO();
         CoordsDTO coordsDTO1 = new CoordsDTO();
-        coordsDTO1.setLat(String.valueOf(userLatitude + 0.005).substring(0,7));
-        coordsDTO1.setLng(String.valueOf(userLongitude + 0.002).substring(0,7));
+//        coordsDTO1.setLat(String.valueOf(userLatitude + 0.005).substring(0,7));
+//        coordsDTO1.setLng(String.valueOf(userLongitude + 0.002).substring(0,7));
+        coordsDTO1.setLng("49.8475");
+        coordsDTO1.setLat("40.3776");
         clientSearchResponseDTO1.setCoords(coordsDTO1);
         clientSearchResponseDTO1.setTitle("E-karyera mərkəzi");
         clientSearchResponseDTO1.setDescription("Sevimli book kafe");
