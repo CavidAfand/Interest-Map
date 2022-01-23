@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 @Service
@@ -40,41 +41,53 @@ public class PlaceServiceImpl implements PlaceService {
     public List<ClientSearchResponseDTO> searchInterestingPlaces(double userLatitude, double userLongitude,
                                                                  List<InterestDTO> userInterestList) {
         // FIXME vaxt qıtlığından hesablama əvəzinə mock datalar generate olundu.
+        Random random = new Random();
+        double value1 = random.nextDouble() / 100;
+        double value2 = random.nextDouble() / 100;
 
         ClientSearchResponseDTO clientSearchResponseDTO1 = new ClientSearchResponseDTO();
         CoordsDTO coordsDTO1 = new CoordsDTO();
-        coordsDTO1.setLat(String.valueOf(userLatitude + 0.005).substring(0,7));
-        coordsDTO1.setLng(String.valueOf(userLongitude + 0.002).substring(0,7));
+        coordsDTO1.setLat(String.valueOf(userLatitude + value1));
+        coordsDTO1.setLng(String.valueOf(userLongitude + value2));
         clientSearchResponseDTO1.setCoords(coordsDTO1);
         clientSearchResponseDTO1.setTitle("E-karyera mərkəzi");
         clientSearchResponseDTO1.setDescription("Sevimli book kafe");
         clientSearchResponseDTO1.setDiscount(10);
         clientSearchResponseDTO1.setId(UUID.randomUUID().toString());
 
+        value1 = random.nextDouble() / 100;
+        value2 = random.nextDouble() / 100;
+
         ClientSearchResponseDTO clientSearchResponseDTO2 = new ClientSearchResponseDTO();
         CoordsDTO coordsDTO2 = new CoordsDTO();
-        coordsDTO2.setLat(String.valueOf(userLatitude + 0.003).substring(0,7));
-        coordsDTO2.setLng(String.valueOf(userLongitude - 0.002).substring(0,7));
+        coordsDTO2.setLat(String.valueOf(userLatitude + value1));
+        coordsDTO2.setLng(String.valueOf(userLongitude - value2));
         clientSearchResponseDTO2.setCoords(coordsDTO2);
         clientSearchResponseDTO2.setTitle("Sağlamlıq futbol meydançası");
         clientSearchResponseDTO2.setDescription("Hər gün 10:00-dan 16:00-dək açıqdır.");
         clientSearchResponseDTO2.setDiscount(1);
         clientSearchResponseDTO2.setId(UUID.randomUUID().toString());
 
+        value1 = random.nextDouble() / 100;
+        value2 = random.nextDouble() / 100;
+
         ClientSearchResponseDTO clientSearchResponseDTO3 = new ClientSearchResponseDTO();
         CoordsDTO coordsDTO3 = new CoordsDTO();
-        coordsDTO3.setLat(String.valueOf(userLatitude + 0.001));
-        coordsDTO3.setLng(String.valueOf(userLongitude - 0.004));
+        coordsDTO3.setLat(String.valueOf(userLatitude + value1));
+        coordsDTO3.setLng(String.valueOf(userLongitude - value2));
         clientSearchResponseDTO3.setCoords(coordsDTO3);
         clientSearchResponseDTO3.setTitle("Məhəllə market");
         clientSearchResponseDTO3.setDescription("Nisyə mal verilmir");
         clientSearchResponseDTO3.setDiscount(0);
         clientSearchResponseDTO3.setId(UUID.randomUUID().toString());
 
+        value1 = random.nextDouble() / 100;
+        value2 = random.nextDouble() / 100;
+
         ClientSearchResponseDTO clientSearchResponseDTO4 = new ClientSearchResponseDTO();
         CoordsDTO coordsDTO4 = new CoordsDTO();
-        coordsDTO4.setLat(String.valueOf(userLatitude - 0.003));
-        coordsDTO4.setLng(String.valueOf(userLongitude + 0.003));
+        coordsDTO4.setLat(String.valueOf(userLatitude - value1));
+        coordsDTO4.setLng(String.valueOf(userLongitude + value2));
         clientSearchResponseDTO4.setCoords(coordsDTO4);
         clientSearchResponseDTO4.setTitle("Məhəllə market");
         clientSearchResponseDTO4.setDescription("Nisyə mal verilmir");
