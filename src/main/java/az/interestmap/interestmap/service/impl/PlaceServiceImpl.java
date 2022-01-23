@@ -46,15 +46,8 @@ public class PlaceServiceImpl implements PlaceService {
 
         ClientSearchResponseDTO clientSearchResponseDTO1 = new ClientSearchResponseDTO();
         CoordsDTO coordsDTO1 = new CoordsDTO();
-//        coordsDTO1.setLat(String.valueOf(userLatitude + 0.005).substring(0,7));
-//        coordsDTO1.setLng(String.valueOf(userLongitude + 0.002).substring(0,7));
-//        String lat1 = new BigDecimal(String.valueOf(userLatitude)).add(new BigDecimal("0.005")).toString();
-        String lat1 = new BigDecimal(String.valueOf(userLatitude)).toString();
-        String lt =  new BigDecimal(String.valueOf(userLatitude)).add(new BigDecimal("0.005")).setScale(3).toPlainString();
-        System.out.println("LAT1 = " + lat1);
-        System.out.println("lt = " + lt);
-        coordsDTO1.setLat(lat1);
-        coordsDTO1.setLng(lt);
+        coordsDTO1.setLat(String.valueOf(userLatitude + 0.005).substring(0,7));
+        coordsDTO1.setLng(String.valueOf(userLongitude + 0.002).substring(0,7));
 //        coordsDTO1.setLng(new BigDecimal(String.valueOf(userLongitude)).add(new BigDecimal("0.002")).toString());
 //        coordsDTO1.setLng("49.8475");
 //        coordsDTO1.setLat("40.3776");
