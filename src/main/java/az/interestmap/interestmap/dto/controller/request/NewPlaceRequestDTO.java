@@ -10,5 +10,6 @@ public class NewPlaceRequestDTO {
     private String title;
     private String description;
     private long discount;
+    private long interestId;
 
 }

@@ -8,6 +8,7 @@ import az.interestmap.interestmap.entity.Interest;
 import az.interestmap.interestmap.repository.InterestRepository;
 import az.interestmap.interestmap.service.InterestService;
 import az.interestmap.interestmap.service.ObjectMapService;
+import org.apache.tomcat.jni.Local;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,6 +35,12 @@ public class InterestServiceImpl implements InterestService {
                 .map(interest -> objectMapService.getInterestDTOFromEntity(interest, Language.valueOf(LocaleContextHolder.getLocale().getLanguage())))
                 .collect(Collectors.toList());
         return interestDTOList;
+    }
+
+    @Override
+    public InterestDTO getInterestById(Long id) {
+        Interest interest = interestRepository.getInterestByInterestId(id);
+        return objectMapService.getInterestDTOFromEntity(interest, Language.valueOf(LocaleContextHolder.getLocale().getLanguage()));
     }
 
 }

@@ -3,14 +3,8 @@ package az.interestmap.interestmap.service.impl;
 import az.interestmap.interestmap.constant.Language;
 import az.interestmap.interestmap.constant.UserType;
 import az.interestmap.interestmap.dto.controller.UserRegistrationRequestDTO;
-import az.interestmap.interestmap.dto.repo.CategoryDTO;
-import az.interestmap.interestmap.dto.repo.InterestDTO;
-import az.interestmap.interestmap.dto.repo.SessionDTO;
-import az.interestmap.interestmap.dto.repo.UserDTO;
-import az.interestmap.interestmap.entity.Category;
-import az.interestmap.interestmap.entity.Interest;
-import az.interestmap.interestmap.entity.Session;
-import az.interestmap.interestmap.entity.User;
+import az.interestmap.interestmap.dto.repo.*;
+import az.interestmap.interestmap.entity.*;
 import az.interestmap.interestmap.service.ObjectMapService;
 import org.springframework.stereotype.Service;
 
@@ -90,5 +84,38 @@ public class ObjectMapServiceImpl implements ObjectMapService {
         interestDTO.setId(interest.getInterestId());
         interestDTO.setDescription(language == Language.az?interest.getAzDescription():interest.getDescription());
         return interestDTO;
+    }
+
+    @Override
+    public Interest getInterestEntityFromDTO(InterestDTO interestDTO) {
+        Interest interest = new Interest();
+        interest.setInterestId(interestDTO.getId());
+        return interest;
+    }
+
+    @Override
+    public Place getPlaceEntityFromDTO(PlaceDTO placeDTO) {
+        Place place = new Place();
+        place.setId(placeDTO.getId());
+        place.setDescription(placeDTO.getDescription());
+        place.setTitle(placeDTO.getTitle());
+        place.setLongtitude(placeDTO.getLongitude());
+        place.setLatitude(placeDTO.getLatitude());
+        place.setUser(getUserEntityFromDTO(placeDTO.getUserDTO()));
+        place.setInterest(getInterestEntityFromDTO(placeDTO.getInterestDTO()));
+        return place;
+    }
+
+    @Override
+    public PlaceDTO getPlaceDTOFromEntity(Place place, Language language) {
+        PlaceDTO placeDTO = new PlaceDTO();
+        placeDTO.setId(place.getId());
+        placeDTO.setTitle(place.getTitle());
+        placeDTO.setDescription(place.getDescription());
+        placeDTO.setLongitude(place.getLongtitude());
+        placeDTO.setLatitude(place.getLatitude());
+        placeDTO.setUserDTO(getUserDTOFromEntity(place.getUser()));
+        placeDTO.setInterestDTO(getInterestDTOFromEntity(place.getInterest(), language));
+        return placeDTO;
     }
 }

@@ -10,4 +10,6 @@ public interface InterestRepository extends JpaRepository<Interest, Long> {
 
     List<Interest> getInterestsByCategory(Category category);
 
+    Interest getInterestByInterestId(Long id);
+
 }

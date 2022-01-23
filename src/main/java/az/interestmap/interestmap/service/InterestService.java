@@ -9,4 +9,6 @@ public interface InterestService {
 
     List<InterestDTO> getInterestList(CategoryDTO categoryDTO);
 
+    InterestDTO getInterestById(Long id);
+
 }

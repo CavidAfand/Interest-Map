@@ -26,6 +26,9 @@ public class Place {
     private String description;
 
     @ManyToOne
+    private Interest interest;
+
+    @ManyToOne
     private User user;
 
 }

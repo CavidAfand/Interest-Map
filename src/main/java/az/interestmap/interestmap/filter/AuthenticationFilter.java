@@ -36,10 +36,6 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 
         LocaleContextHolder.setLocale(Locale.forLanguageTag(language));
 
-        System.out.println("URI: " + request.getRequestURI());
-
-//        if (request.getRequestURI().contains("/login"))
-
         if (token != null && !token.trim().isEmpty() &&
                 !(request.getRequestURI().equals("/login") || request.getRequestURI().equals("/registration"))) {
             Map<String, String> info = tokenManager.getInfoFromToken(token);
