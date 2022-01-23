@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class TokenManagerImpl implements TokenManager {
@@ -30,6 +32,21 @@ public class TokenManagerImpl implements TokenManager {
     public String getUsername(String token) {
         Claims claims = getClaims(token);
         return claims.getSubject();
+    }
+
+    @Override
+    public String getSessionId(String token) {
+        Claims claims = getClaims(token);
+        return claims.getId();
+    }
+
+    @Override
+    public Map<String, String> getInfoFromToken(String token) {
+        Claims claims = getClaims(token);
+        Map<String, String> info = new HashMap<>();
+        info.put("sessionId", claims.getId());
+        info.put("username", claims.getSubject());
+        return info;
     }
 
     private Claims getClaims(String token) {

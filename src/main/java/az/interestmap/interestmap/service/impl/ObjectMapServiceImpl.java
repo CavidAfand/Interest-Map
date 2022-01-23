@@ -1,9 +1,12 @@
 package az.interestmap.interestmap.service.impl;
 
+import az.interestmap.interestmap.constant.Language;
 import az.interestmap.interestmap.constant.UserType;
 import az.interestmap.interestmap.dto.controller.UserRegistrationRequestDTO;
+import az.interestmap.interestmap.dto.repo.CategoryDTO;
 import az.interestmap.interestmap.dto.repo.SessionDTO;
 import az.interestmap.interestmap.dto.repo.UserDTO;
+import az.interestmap.interestmap.entity.Category;
 import az.interestmap.interestmap.entity.Session;
 import az.interestmap.interestmap.entity.User;
 import az.interestmap.interestmap.service.ObjectMapService;
@@ -62,5 +65,13 @@ public class ObjectMapServiceImpl implements ObjectMapService {
         sessionDTO.setSessionStatus(session.getStatus());
         sessionDTO.setCreatedAt(session.getCreatedAt());
         return sessionDTO;
+    }
+
+    @Override
+    public CategoryDTO getCategoryDTOFromEntity(Category category, Language language) {
+        CategoryDTO categoryDTO = new CategoryDTO();
+        categoryDTO.setId(category.getCategoryId());
+        categoryDTO.setDescription(language == Language.az?category.getAzDescription():category.getDescription());
+        return categoryDTO;
     }
 }

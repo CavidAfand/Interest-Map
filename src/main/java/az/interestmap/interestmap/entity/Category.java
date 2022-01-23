@@ -15,8 +15,11 @@ public class Category {
     @Column(name = "CATEGORY_ID")
     private Long categoryId;
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "DESCRIPTION", length = 50)
     private String description;
+
+    @Column(name = "DESCRIPTION_AZ", length = 50)
+    private String azDescription;
 
     @OneToMany(mappedBy = "category")
     private List<Interest> interestList;

@@ -1,6 +1,8 @@
 package az.interestmap.interestmap.configuration;
 
 import az.interestmap.interestmap.filter.AuthenticationFilter;
+import az.interestmap.interestmap.service.SessionService;
+import az.interestmap.interestmap.service.TokenManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -10,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 
 import java.util.List;
@@ -18,10 +21,12 @@ import java.util.List;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final AuthenticationFilter authenticationFilter;
+    private final TokenManager tokenManager;
+    private final SessionService sessionService;
 
-    public WebSecurityConfig(AuthenticationFilter filter) {
-        this.authenticationFilter = filter;
+    public WebSecurityConfig(TokenManager tokenManager, SessionService sessionService) {
+        this.tokenManager = tokenManager;
+        this.sessionService = sessionService;
     }
 
     @Bean
@@ -48,10 +53,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors().configurationSource(request -> corsConfiguration)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/login","/registration","/status").permitAll()
+                .antMatchers("/login","/registration").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .addFilterBefore(new AuthenticationFilter(tokenManager, sessionService), BasicAuthenticationFilter.class);
 //        http.addFilterBefore(authenticationFilter, AuthenticationFilter.class);
     }
 }

@@ -17,6 +17,9 @@ public class Interest {
     @Column(name = "DESCRIPTION", length = 50)
     private String description;
 
+    @Column(name = "DESCRIPTION_AZ", length = 50)
+    private String azDescription;
+
     @ManyToOne
     private Category category;
 

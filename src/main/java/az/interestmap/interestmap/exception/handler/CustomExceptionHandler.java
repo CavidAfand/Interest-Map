@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.security.SignatureException;
+
 @RestControllerAdvice
 @Slf4j
 public class CustomExceptionHandler {
@@ -42,6 +44,14 @@ public class CustomExceptionHandler {
     public ServiceResponse getErrorResponse(PasswordNotMatchedException ex) {
         log.error("UserNotFound exception");
         ServiceResponse serviceResponse = ServiceResponse.getErrorResponse("404", messageProviderService.getMessage("error.user_not_found"));
+        return serviceResponse;
+    }
+
+    @ExceptionHandler(SignatureException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public ServiceResponse getErrorResponse(SignatureException ex) {
+        log.error("Signature exception");
+        ServiceResponse serviceResponse = ServiceResponse.getErrorResponse("401", messageProviderService.getMessage("error.unauthorized"));
         return serviceResponse;
     }
 

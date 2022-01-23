@@ -1,8 +1,11 @@
 package az.interestmap.interestmap.service;
 
+import az.interestmap.interestmap.constant.Language;
 import az.interestmap.interestmap.dto.controller.UserRegistrationRequestDTO;
+import az.interestmap.interestmap.dto.repo.CategoryDTO;
 import az.interestmap.interestmap.dto.repo.SessionDTO;
 import az.interestmap.interestmap.dto.repo.UserDTO;
+import az.interestmap.interestmap.entity.Category;
 import az.interestmap.interestmap.entity.Session;
 import az.interestmap.interestmap.entity.User;
 
@@ -17,5 +20,7 @@ public interface ObjectMapService {
     Session getSessionEntityFromDTO(SessionDTO sessionDTO);
 
     SessionDTO getSessionDTOFromEntity(Session session);
+
+    CategoryDTO getCategoryDTOFromEntity(Category category, Language language);
 
 }
