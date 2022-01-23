@@ -80,8 +80,8 @@ public class PlaceServiceImpl implements PlaceService {
 
         ClientSearchResponseDTO clientSearchResponseDTO3 = new ClientSearchResponseDTO();
         CoordsDTO coordsDTO3 = new CoordsDTO();
-        coordsDTO3.setLat(String.valueOf(userLatitude + 0.001).substring(0,7));
-        coordsDTO3.setLng(String.valueOf(userLongitude - 0.004).substring(0,7));
+        coordsDTO3.setLat(String.valueOf(userLatitude + 0.001));
+        coordsDTO3.setLng(String.valueOf(userLongitude - 0.004));
         clientSearchResponseDTO3.setCoords(coordsDTO3);
         clientSearchResponseDTO3.setTitle("Məhəllə market");
         clientSearchResponseDTO3.setDescription("Nisyə mal verilmir");
@@ -100,5 +100,5 @@ public class PlaceServiceImpl implements PlaceService {
 */
         return List.of(clientSearchResponseDTO1, clientSearchResponseDTO2/*, clientSearchResponseDTO3, clientSearchResponseDTO4*/);
     }
-    
+
 }
