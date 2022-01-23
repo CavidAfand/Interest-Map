@@ -58,13 +58,15 @@ public class PlaceController {
                                                                        @RequestHeader("Accept-Language") String language,
                                                                        @RequestBody SearchPlaceRequestDTO searchPlaceRequestDTO,
                                                                        Principal principal) {
-//        List<InterestDTO> interestDTOList = userService.getUserByUsername(principal).
 
-        return ServiceResponse.getSuccessfulResponse(getMockResponse());
+        List<ClientSearchResponseDTO> clientSearchResponseDTOList = placeService
+                .searchInterestingPlaces(searchPlaceRequestDTO.getLatitude(), searchPlaceRequestDTO.getLongitude(), null);
+
+        return ServiceResponse.getSuccessfulResponse(clientSearchResponseDTOList);
 
     }
 
-
+/*
     private List<ClientSearchResponseDTO> getMockResponse() {
         ClientSearchResponseDTO clientSearchResponseDTO = new ClientSearchResponseDTO();
         clientSearchResponseDTO.setLongitude(40.3714273);
@@ -108,4 +110,6 @@ public class PlaceController {
 
         return List.of(clientSearchResponseDTO, clientSearchResponseDTO2, clientSearchResponseDTO3, clientSearchResponseDTO4, clientSearchResponseDTO5);
     }
+
+ */
 }

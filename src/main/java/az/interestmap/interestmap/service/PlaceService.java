@@ -10,7 +10,7 @@ public interface PlaceService {
 
     PlaceDTO savePlace(PlaceDTO placeDTO);
 
-    List<ClientSearchResponseDTO> searchInterestingPlaces(String userLatitude, String userLongitude,
+    List<ClientSearchResponseDTO> searchInterestingPlaces(double userLatitude, double userLongitude,
                                                           List<InterestDTO> userInterestList);
 
 }
