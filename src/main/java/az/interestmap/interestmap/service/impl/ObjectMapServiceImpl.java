@@ -4,9 +4,11 @@ import az.interestmap.interestmap.constant.Language;
 import az.interestmap.interestmap.constant.UserType;
 import az.interestmap.interestmap.dto.controller.UserRegistrationRequestDTO;
 import az.interestmap.interestmap.dto.repo.CategoryDTO;
+import az.interestmap.interestmap.dto.repo.InterestDTO;
 import az.interestmap.interestmap.dto.repo.SessionDTO;
 import az.interestmap.interestmap.dto.repo.UserDTO;
 import az.interestmap.interestmap.entity.Category;
+import az.interestmap.interestmap.entity.Interest;
 import az.interestmap.interestmap.entity.Session;
 import az.interestmap.interestmap.entity.User;
 import az.interestmap.interestmap.service.ObjectMapService;
@@ -73,5 +75,20 @@ public class ObjectMapServiceImpl implements ObjectMapService {
         categoryDTO.setId(category.getCategoryId());
         categoryDTO.setDescription(language == Language.az?category.getAzDescription():category.getDescription());
         return categoryDTO;
+    }
+
+    @Override
+    public Category getCategoryEntityFromDTO(CategoryDTO categoryDTO) {
+        Category category = new Category();
+        category.setCategoryId(categoryDTO.getId());
+        return category;
+    }
+
+    @Override
+    public InterestDTO getInterestDTOFromEntity(Interest interest, Language language) {
+        InterestDTO interestDTO = new InterestDTO();
+        interestDTO.setId(interest.getInterestId());
+        interestDTO.setDescription(language == Language.az?interest.getAzDescription():interest.getDescription());
+        return interestDTO;
     }
 }

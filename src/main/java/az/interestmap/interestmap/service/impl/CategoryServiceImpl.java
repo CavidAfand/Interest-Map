@@ -32,4 +32,10 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryDTOList;
     }
 
+    @Override
+    public CategoryDTO getCategory(Long categoryId) {
+        Category category = categoryRepository.getById(categoryId);
+        return objectMapService.getCategoryDTOFromEntity(category, Language.valueOf(LocaleContextHolder.getLocale().getLanguage()));
+    }
+
 }
