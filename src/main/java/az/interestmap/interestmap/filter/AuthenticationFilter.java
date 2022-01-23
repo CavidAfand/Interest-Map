@@ -36,7 +36,10 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 
         LocaleContextHolder.setLocale(Locale.forLanguageTag(language));
 
-        if (token != null && !token.trim().isEmpty()) {
+        if (request.getRequestURI().contains("/login"))
+
+        if (token != null && !token.trim().isEmpty() &&
+                !(request.getRequestURI().contains("login") || request.getRequestURI().contains("registration"))) {
             Map<String, String> info = tokenManager.getInfoFromToken(token);
             SessionDTO sessionDTO = sessionService.getSessionBySessionId(info.get("sessionId"));
             if (sessionDTO.getSessionStatus() == SessionStatus.ACTIVE) {
