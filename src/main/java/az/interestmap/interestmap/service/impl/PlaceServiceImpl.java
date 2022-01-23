@@ -73,8 +73,8 @@ public class PlaceServiceImpl implements PlaceService {
 
         ClientSearchResponseDTO clientSearchResponseDTO4 = new ClientSearchResponseDTO();
         CoordsDTO coordsDTO4 = new CoordsDTO();
-        coordsDTO4.setLat(String.valueOf(userLatitude));
-        coordsDTO4.setLng(String.valueOf(userLongitude));
+        coordsDTO4.setLat(String.valueOf(userLatitude - 0.003));
+        coordsDTO4.setLng(String.valueOf(userLongitude + 0.003));
         clientSearchResponseDTO4.setCoords(coordsDTO4);
         clientSearchResponseDTO4.setTitle("Məhəllə market");
         clientSearchResponseDTO4.setDescription("Nisyə mal verilmir");
