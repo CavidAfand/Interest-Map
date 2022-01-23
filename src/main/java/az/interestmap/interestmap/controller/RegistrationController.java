@@ -1,7 +1,7 @@
 package az.interestmap.interestmap.controller;
 
 import az.interestmap.interestmap.dto.ServiceResponse;
-import az.interestmap.interestmap.dto.controller.UserRegistrationRequestDTO;
+import az.interestmap.interestmap.dto.controller.request.UserRegistrationRequestDTO;
 import az.interestmap.interestmap.dto.controller.response.UserRegistrationResponseDTO;
 import az.interestmap.interestmap.service.RegistrationService;
 import org.springframework.web.bind.annotation.PostMapping;

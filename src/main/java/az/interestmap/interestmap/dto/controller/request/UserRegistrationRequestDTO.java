@@ -1,4 +1,4 @@
-package az.interestmap.interestmap.dto.controller;
+package az.interestmap.interestmap.dto.controller.request;
 
 import az.interestmap.interestmap.constant.UserType;
 import az.interestmap.interestmap.entity.User;

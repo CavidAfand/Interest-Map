@@ -12,7 +12,6 @@ import az.interestmap.interestmap.service.PlaceService;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;

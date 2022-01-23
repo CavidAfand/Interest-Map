@@ -1,7 +1,7 @@
 package az.interestmap.interestmap.service;
 
 import az.interestmap.interestmap.constant.Language;
-import az.interestmap.interestmap.dto.controller.UserRegistrationRequestDTO;
+import az.interestmap.interestmap.dto.controller.request.UserRegistrationRequestDTO;
 import az.interestmap.interestmap.dto.repo.*;
 import az.interestmap.interestmap.entity.*;
 
