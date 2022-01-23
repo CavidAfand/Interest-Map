@@ -103,6 +103,7 @@ public class ObjectMapServiceImpl implements ObjectMapService {
         place.setLatitude(placeDTO.getLatitude());
         place.setUser(getUserEntityFromDTO(placeDTO.getUserDTO()));
         place.setInterest(getInterestEntityFromDTO(placeDTO.getInterestDTO()));
+        place.setDiscount(placeDTO.getDiscount());
         return place;
     }
 
@@ -116,6 +117,7 @@ public class ObjectMapServiceImpl implements ObjectMapService {
         placeDTO.setLatitude(place.getLatitude());
         placeDTO.setUserDTO(getUserDTOFromEntity(place.getUser()));
         placeDTO.setInterestDTO(getInterestDTOFromEntity(place.getInterest(), language));
+        placeDTO.setDiscount(place.getDiscount());
         return placeDTO;
     }
 }

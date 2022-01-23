@@ -1,4 +1,4 @@
-package az.interestmap.interestmap.dto.controller.request;
+package az.interestmap.interestmap.dto.controller.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

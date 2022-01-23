@@ -12,5 +12,6 @@ public class PlaceDTO {
     private String description;
     private InterestDTO interestDTO;
     private UserDTO userDTO;
+    private int discount;
 
 }

@@ -1,7 +1,7 @@
 package az.interestmap.interestmap.service.impl;
 
 import az.interestmap.interestmap.dto.controller.UserRegistrationRequestDTO;
-import az.interestmap.interestmap.dto.controller.request.UserRegistrationResponseDTO;
+import az.interestmap.interestmap.dto.controller.response.UserRegistrationResponseDTO;
 import az.interestmap.interestmap.dto.repo.SessionDTO;
 import az.interestmap.interestmap.dto.repo.UserDTO;
 import az.interestmap.interestmap.exception.custom.ExistedUsernameException;

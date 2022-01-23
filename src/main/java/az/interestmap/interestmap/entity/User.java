@@ -4,6 +4,7 @@ import az.interestmap.interestmap.constant.UserType;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "USER_TABLE")
@@ -26,5 +27,8 @@ public class User {
     @Column(name = "TYPE", length = 10)
     @Enumerated(EnumType.STRING)
     private UserType type;
+
+    @ManyToMany
+    private Set<Interest> interestList;
 
 }

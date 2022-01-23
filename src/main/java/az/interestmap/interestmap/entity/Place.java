@@ -25,6 +25,9 @@ public class Place {
     @Column(name = "DESCRIPTION")
     private String description;
 
+    @Column(name = "discount")
+    private int discount;
+
     @ManyToOne
     private Interest interest;
 
