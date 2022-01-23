@@ -45,8 +45,13 @@ public class PlaceServiceImpl implements PlaceService {
         CoordsDTO coordsDTO1 = new CoordsDTO();
 //        coordsDTO1.setLat(String.valueOf(userLatitude + 0.005).substring(0,7));
 //        coordsDTO1.setLng(String.valueOf(userLongitude + 0.002).substring(0,7));
-        coordsDTO1.setLat(new BigDecimal(String.valueOf(userLatitude)).add(new BigDecimal("0.005")).toString());
-        coordsDTO1.setLat(new BigDecimal(String.valueOf(userLongitude)).add(new BigDecimal("0.002")).toString());
+        String lat1 = new BigDecimal(String.valueOf(userLatitude)).add(new BigDecimal("0.005")).toString();
+        String lt =  new BigDecimal(String.valueOf(userLatitude)).add(new BigDecimal("0.005")).setScale(3).toPlainString();
+        System.out.println("LAT1 = " + lat1);
+        System.out.println("lt = " + lt);
+        coordsDTO1.setLat(lat1);
+        coordsDTO1.setLng(lt);
+//        coordsDTO1.setLng(new BigDecimal(String.valueOf(userLongitude)).add(new BigDecimal("0.002")).toString());
 //        coordsDTO1.setLng("49.8475");
 //        coordsDTO1.setLat("40.3776");
         clientSearchResponseDTO1.setCoords(coordsDTO1);
@@ -60,7 +65,7 @@ public class PlaceServiceImpl implements PlaceService {
 //        coordsDTO2.setLat(String.valueOf(userLatitude + 0.003).substring(0,7));
 //        coordsDTO2.setLng(String.valueOf(userLongitude - 0.002).substring(0,7));
         coordsDTO2.setLat(new BigDecimal(String.valueOf(userLatitude)).add(new BigDecimal("0.003")).toString());
-        coordsDTO2.setLat(new BigDecimal(String.valueOf(userLongitude)).subtract(new BigDecimal("0.002")).toString());
+        coordsDTO2.setLng(new BigDecimal(String.valueOf(userLongitude)).subtract(new BigDecimal("0.002")).toString());
 //        coordsDTO2.setLng("49.8490");
 //        coordsDTO2.setLat("40.3790");
         clientSearchResponseDTO2.setCoords(coordsDTO2);
@@ -90,5 +95,11 @@ public class PlaceServiceImpl implements PlaceService {
         clientSearchResponseDTO4.setId(UUID.randomUUID().toString());
 */
         return List.of(clientSearchResponseDTO1, clientSearchResponseDTO2/*, clientSearchResponseDTO3, clientSearchResponseDTO4*/);
+    }
+
+    public static void main(String[] args) {
+        double userLatitude = 40.3790;
+        String value = new BigDecimal(String.valueOf(userLatitude)).add(new BigDecimal("0.003")).toString();
+        System.out.println("Value: " + value);
     }
 }
