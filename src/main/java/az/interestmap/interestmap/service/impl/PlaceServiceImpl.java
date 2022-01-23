@@ -54,14 +54,16 @@ public class PlaceServiceImpl implements PlaceService {
 
         ClientSearchResponseDTO clientSearchResponseDTO2 = new ClientSearchResponseDTO();
         CoordsDTO coordsDTO2 = new CoordsDTO();
-        coordsDTO2.setLat(String.valueOf(userLatitude + 0.003).substring(0,7));
-        coordsDTO2.setLng(String.valueOf(userLongitude - 0.002).substring(0,7));
+//        coordsDTO2.setLat(String.valueOf(userLatitude + 0.003).substring(0,7));
+//        coordsDTO2.setLng(String.valueOf(userLongitude - 0.002).substring(0,7));
+        coordsDTO2.setLng("49.8490");
+        coordsDTO2.setLat("40.3790");
         clientSearchResponseDTO2.setCoords(coordsDTO2);
         clientSearchResponseDTO2.setTitle("Sağlamlıq futbol meydançası");
         clientSearchResponseDTO2.setDescription("Hər gün 10:00-dan 16:00-dək açıqdır.");
         clientSearchResponseDTO2.setDiscount(1);
         clientSearchResponseDTO2.setId(UUID.randomUUID().toString());
-
+/*
         ClientSearchResponseDTO clientSearchResponseDTO3 = new ClientSearchResponseDTO();
         CoordsDTO coordsDTO3 = new CoordsDTO();
         coordsDTO3.setLat(String.valueOf(userLatitude + 0.001).substring(0,7));
@@ -81,7 +83,7 @@ public class PlaceServiceImpl implements PlaceService {
         clientSearchResponseDTO4.setDescription("Nisyə mal verilmir");
         clientSearchResponseDTO4.setDiscount(0);
         clientSearchResponseDTO4.setId(UUID.randomUUID().toString());
-
-        return List.of(clientSearchResponseDTO1, clientSearchResponseDTO2, clientSearchResponseDTO3, clientSearchResponseDTO4);
+*/
+        return List.of(clientSearchResponseDTO1, clientSearchResponseDTO2/*, clientSearchResponseDTO3, clientSearchResponseDTO4*/);
     }
 }
