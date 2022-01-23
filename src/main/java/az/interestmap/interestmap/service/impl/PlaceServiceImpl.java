@@ -41,6 +41,9 @@ public class PlaceServiceImpl implements PlaceService {
                                                                  List<InterestDTO> userInterestList) {
         // FIXME vaxt qıtlığından hesablama əvəzinə mock datalar generate olundu.
 
+//        System.out.println("User lat: " + userLatitude);
+//        System.out.println("user lng: " + userLongitude);
+
         ClientSearchResponseDTO clientSearchResponseDTO1 = new ClientSearchResponseDTO();
         CoordsDTO coordsDTO1 = new CoordsDTO();
 //        coordsDTO1.setLat(String.valueOf(userLatitude + 0.005).substring(0,7));
@@ -74,7 +77,7 @@ public class PlaceServiceImpl implements PlaceService {
         clientSearchResponseDTO2.setDescription("Hər gün 10:00-dan 16:00-dək açıqdır.");
         clientSearchResponseDTO2.setDiscount(1);
         clientSearchResponseDTO2.setId(UUID.randomUUID().toString());
-/*
+
         ClientSearchResponseDTO clientSearchResponseDTO3 = new ClientSearchResponseDTO();
         CoordsDTO coordsDTO3 = new CoordsDTO();
         coordsDTO3.setLat(String.valueOf(userLatitude + 0.001).substring(0,7));
@@ -84,7 +87,7 @@ public class PlaceServiceImpl implements PlaceService {
         clientSearchResponseDTO3.setDescription("Nisyə mal verilmir");
         clientSearchResponseDTO3.setDiscount(0);
         clientSearchResponseDTO3.setId(UUID.randomUUID().toString());
-
+/*
         ClientSearchResponseDTO clientSearchResponseDTO4 = new ClientSearchResponseDTO();
         CoordsDTO coordsDTO4 = new CoordsDTO();
         coordsDTO4.setLat(String.valueOf(userLatitude - 0.003).substring(0,7));
@@ -97,10 +100,5 @@ public class PlaceServiceImpl implements PlaceService {
 */
         return List.of(clientSearchResponseDTO1, clientSearchResponseDTO2/*, clientSearchResponseDTO3, clientSearchResponseDTO4*/);
     }
-
-    public static void main(String[] args) {
-        double userLatitude = 40.3790;
-        String value = new BigDecimal(String.valueOf(userLatitude)).add(new BigDecimal("0.003")).toString();
-        System.out.println("Value: " + value);
-    }
+    
 }
