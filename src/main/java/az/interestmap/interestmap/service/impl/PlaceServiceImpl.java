@@ -42,8 +42,8 @@ public class PlaceServiceImpl implements PlaceService {
 
         ClientSearchResponseDTO clientSearchResponseDTO1 = new ClientSearchResponseDTO();
         CoordsDTO coordsDTO1 = new CoordsDTO();
-        coordsDTO1.setLat(userLatitude + 0.005);
-        coordsDTO1.setLng(userLongitude + 0.002);
+        coordsDTO1.setLat(String.valueOf(userLatitude + 0.005));
+        coordsDTO1.setLng(String.valueOf(userLongitude + 0.002));
         clientSearchResponseDTO1.setCoords(coordsDTO1);
         clientSearchResponseDTO1.setTitle("E-karyera mərkəzi");
         clientSearchResponseDTO1.setDescription("Sevimli book kafe");
@@ -52,8 +52,8 @@ public class PlaceServiceImpl implements PlaceService {
 
         ClientSearchResponseDTO clientSearchResponseDTO2 = new ClientSearchResponseDTO();
         CoordsDTO coordsDTO2 = new CoordsDTO();
-        coordsDTO2.setLat(userLatitude + 0.003);
-        coordsDTO2.setLng(userLongitude - 0.002);
+        coordsDTO2.setLat(String.valueOf(userLatitude + 0.003));
+        coordsDTO2.setLng(String.valueOf(userLongitude - 0.002));
         clientSearchResponseDTO2.setCoords(coordsDTO2);
         clientSearchResponseDTO2.setTitle("Sağlamlıq futbol meydançası");
         clientSearchResponseDTO2.setDescription("Hər gün 10:00-dan 16:00-dək açıqdır.");
@@ -62,8 +62,8 @@ public class PlaceServiceImpl implements PlaceService {
 
         ClientSearchResponseDTO clientSearchResponseDTO3 = new ClientSearchResponseDTO();
         CoordsDTO coordsDTO3 = new CoordsDTO();
-        coordsDTO3.setLat(userLatitude + 0.001);
-        coordsDTO3.setLng(userLongitude - 0.004);
+        coordsDTO3.setLat(String.valueOf(userLatitude + 0.001));
+        coordsDTO3.setLng(String.valueOf(userLongitude - 0.004));
         clientSearchResponseDTO3.setCoords(coordsDTO3);
         clientSearchResponseDTO3.setTitle("Məhəllə market");
         clientSearchResponseDTO3.setDescription("Nisyə mal verilmir");
@@ -72,8 +72,8 @@ public class PlaceServiceImpl implements PlaceService {
 
         ClientSearchResponseDTO clientSearchResponseDTO4 = new ClientSearchResponseDTO();
         CoordsDTO coordsDTO4 = new CoordsDTO();
-        coordsDTO4.setLat(userLatitude - 0.003);
-        coordsDTO4.setLng(userLongitude + 0.003);
+        coordsDTO4.setLat(String.valueOf(userLatitude - 0.003));
+        coordsDTO4.setLng(String.valueOf(userLongitude + 0.003));
         clientSearchResponseDTO4.setCoords(coordsDTO4);
         clientSearchResponseDTO4.setTitle("Məhəllə market");
         clientSearchResponseDTO4.setDescription("Nisyə mal verilmir");
